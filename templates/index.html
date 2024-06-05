@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Generate Face</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="form-container">
+            <h1>Generate Face</h1>
+            <form method="POST">
+                <div class="hair_color"> Select Hair Color
+                    <div>
+                    <input type="checkbox" id="Black_Hair" name="Black_Hair" {{'checked' if attrs[8] == 1 else '' }}><label for="Black_Hair">Black Hair</label>
+                    <input type="checkbox" id="Blond_Hair" name="Blond_Hair" {{ 'checked' if attrs[9] == 1 else '' }}><label for="Blond_Hair">Blond Hair</label>
+                    <input type="checkbox" id="Brown_Hair" name="Brown_Hair" {{ 'checked' if attrs[11] == 1 else '' }}><label for="Brown_Hair">Brown Hair</label>
+                    </div>
+                </div>
+                Other Features
+                <div><input type="checkbox" id="Narrow_Eyes" name="Narrow_Eyes" {{ 'checked' if attrs[23] == 1 else '' }}><label for="Narrow_Eyes">Narrow_Eyes</label></div>
+                <div><input type="checkbox" id="Male" name="Male" {{ 'checked' if attrs[20] == 1 else '' }}><label for="Male">Male</label></div>
+                <div><input type="checkbox" id="Mouth_Slightly_Open" name="Mouth_Slightly_Open" {{ 'checked' if attrs[21] == 1 else '' }}><label for="Mouth_Slightly_Open">Mouth_Slightly_Open</label></div>
+                <div><input type="checkbox" id="Wearing_Hat" name="Wearing_Hat" {{ 'checked' if attrs[35] == 1 else '' }}><label for="Wearing_Hat">Wearing_Hat</label></div>
+                <div><input type="checkbox" id="Wearing_Necklace" name="Wearing_Necklace" {{ 'checked' if attrs[37] == 1 else '' }}><label for="Wearing_Necklace">Wearing_Necklace</label></div>
+                <div><input type="checkbox" id="Eyeglasses" name="Eyeglasses" {{ 'checked' if attrs[15] == 1 else '' }}><label for="Eyeglasses">Eyeglasses</label></div>
+                <div><input type="checkbox" id="Smiling" name="Smiling" {{ 'checked' if attrs[31] == 1 else '' }}><label for="Smiling">Smiling</label></div>
+                <!-- Add more checkboxes as needed -->
+                <button type="submit">Generate</button>
+            </form>
+        </div>
+        <div class="image-container">
+            {% if image_data %}
+                <img src="data:image/jpeg;base64,{{ image_data }}" alt="Generated Image">
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
